@@ -1,0 +1,10 @@
+strategy,hit_rate_mean,hit_rate_std,hit_rate_min,hit_rate_max,precision_mean,precision_std,precision_min,precision_max,recall_mean,recall_std,recall_min,recall_max,ndcg_mean,ndcg_std,ndcg_min,ndcg_max,method_type
+Content_Based,0.03,0.1714,0.0,1.0,0.003,0.0171,0.0,0.1,0.0045,0.0271,0.0,0.2,0.0052,0.0359,0.0,0.3392,Baseline
+Popular,0.09,0.2876,0.0,1.0,0.01,0.0333,0.0,0.2,0.0153,0.0538,0.0,0.25,0.0147,0.0516,0.0,0.3392,Baseline
+Quality_Based,0.12,0.3266,0.0,1.0,0.012,0.0327,0.0,0.1,0.0192,0.0584,0.0,0.25,0.0194,0.0593,0.0,0.3392,Baseline
+Attention_Based,0.02,0.1407,0.0,1.0,0.002,0.0141,0.0,0.1,0.0016,0.0113,0.0,0.0833,0.0014,0.0098,0.0,0.0734,Advanced
+Cascade_Forgetting,0.01,0.1,0.0,1.0,0.001,0.01,0.0,0.1,0.0033,0.0333,0.0,0.3333,0.0023,0.0235,0.0,0.2346,Advanced
+Contextual_Forgetting,0.01,0.1,0.0,1.0,0.001,0.01,0.0,0.1,0.0003,0.0033,0.0,0.0333,0.0006,0.0064,0.0,0.0636,Advanced
+Full_Advanced_Stack,0.02,0.1407,0.0,1.0,0.002,0.0141,0.0,0.1,0.0023,0.0202,0.0,0.2,0.0016,0.0116,0.0,0.098,Advanced
+Hybrid_Neural_Attention,0.02,0.1407,0.0,1.0,0.002,0.0141,0.0,0.1,0.0023,0.0202,0.0,0.2,0.0016,0.0116,0.0,0.098,Advanced
+Neural_Adaptive,0.02,0.1407,0.0,1.0,0.002,0.0141,0.0,0.1,0.0023,0.0202,0.0,0.2,0.0019,0.0139,0.0,0.1208,Advanced

@@ -1,0 +1,51 @@
+
+METHOD ANALYSIS REPORT: CASCADE_FORGETTING
+============================================================
+Generated: 2025-06-25 14:10:28
+
+OVERVIEW:
+Method Name: Cascade_Forgetting
+Method Type: Advanced Method
+
+PERFORMANCE STATISTICS:
+Sample Size: 100 evaluations
+
+Hit Rate @10:
+  Mean: 0.0100
+  Std:  0.1000
+  Min:  0.0000
+  Max:  1.0000
+
+Precision @10:
+  Mean: 0.0010
+  Std:  0.0100
+  Min:  0.0000
+  Max:  0.1000
+
+Recall @10:
+  Mean: 0.0033
+  Std:  0.0333
+  Min:  0.0000
+  Max:  0.3333
+
+NDCG @10:
+  Mean: 0.0023
+  Std:  0.0235
+  Min:  0.0000
+  Max:  0.2346
+
+SUCCESS ANALYSIS:
+Users with at least 1 hit: 1/100 (1.0%)
+
+COMPARATIVE ANALYSIS:
+Improvement over baseline average: -87.5%
+
+METHOD INSIGHTS:
+- Uses cascade forgetting relationships
+- Propagates forgetting through connected items
+
+RECOMMENDATIONS FOR IMPROVEMENT:
+- Consider parameter tuning to improve hit rate
+- Investigate user-item overlap in test data
+- Focus on precision-oriented optimizations
+- Consider reducing recommendation list size

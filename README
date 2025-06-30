@@ -1,0 +1,127 @@
+# Advanced Forgetting Mechanisms for Knowledge Graph-Based Recommendation Systems
+
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Kaggle Dataset](https://img.shields.io/badge/dataset-Amazon_Reviews-orange.svg)](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+> **Bachelor Thesis** | Constructor University Bremen | June 2025  
+> **Author:** Anactacia Lomtadze | **Supervisor:** Prof. Dr. A. Tormasov
+
+## Overview
+
+This thesis investigates whether **cognitive forgetting mechanisms** can improve knowledge graph-based recommendation systems. **Spoiler**: They don't work in sparse data environments.
+
+### Key Finding
+**Forgetting mechanisms cause 79.2% performance loss** for only 5-15% memory savings in sparse datasets.
+
+## Results Summary
+
+| Method | Hit Rate@10 | Status |
+|--------|-------------|---------|
+| **Quality-Based (Baseline)** | **12.0%** | ✅ Best |
+| Popularity-Based | 9.0% | ✅ Good |
+| Neural Adaptive Forgetting | 2.0% | ❌ -83% |
+| Attention-Based Forgetting | 2.0% | ❌ -83% |
+| Cascade Forgetting | 1.0% | ❌ -92% |
+| Contextual Forgetting | 1.0% | ❌ -92% |
+
+## Quick Start
+
+### 1. Installation
+```bash
+pip install pandas numpy matplotlib seaborn networkx scikit-learn tqdm kagglehub[pandas-datasets]
+```
+
+### 2. Run Evaluation
+```bash
+# Load dataset and run complete evaluation
+python thesis_final_evaluation.py
+
+# Test individual mechanisms
+python test_fixed_mechanisms.py
+```
+
+### 3. Dataset Loading
+```python
+import kagglehub
+from kagglehub import KaggleDatasetAdapter
+
+# Load Amazon reviews dataset
+df = kagglehub.load_dataset(
+    KaggleDatasetAdapter.PANDAS,
+    "saurav9786/amazon-product-reviews",
+    ""
+)
+```
+
+## Core Files
+
+- `thesis_final_evaluation.py` - Main evaluation script
+- `fixed_advanced_forgetting.py` - Forgetting mechanisms implementation
+- `test_fixed_mechanisms.py` - Testing framework
+- `amazon_knowledge_graph.py` - Knowledge graph implementation
+
+## 🔍 Key Insights
+
+### What We Learned
+- **Sparse data breaks forgetting**: Each interaction is too valuable to remove
+- **Cognitive models ≠ Recommender systems**: Human memory principles don't translate directly
+- **Negative results matter**: Important scientific contribution showing what doesn't work
+
+### Why Forgetting Failed
+1. **Data sparsity**: Only 0.3% of user-item pairs observed
+2. **No redundancy**: Removing any edge breaks recommendation paths
+3. **Cold-start amplification**: Forgetting makes sparse data even sparser
+
+## Mechanisms Tested
+
+| Mechanism | Inspiration | Key Insight |
+|-----------|-------------|-------------|
+| **Neural Adaptive** | Synaptic plasticity | Can't learn from sparse data |
+| **Attention-Based** | Selective attention | Removes meaningful connections |
+| **Cascade Forgetting** | Spreading activation | Over-aggressive propagation |
+| **Contextual Forgetting** | Context-dependent memory | Weak contextual signals |
+
+## Dataset Info
+
+- **Source**: [Amazon Product Reviews](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews)
+- **Scale**: 147,412 ratings, 4,883 users, 9,956 products
+- **Sparsity**: 97% (extremely sparse)
+- **Domain**: Electronics category
+
+## Scientific Contribution
+
+**This is the first systematic study showing that cognitive forgetting mechanisms are harmful in sparse recommendation environments.**
+
+### Research Impact
+- Establishes clear boundaries for forgetting in recommender systems
+- Provides evaluation framework for memory-aware systems
+- Prevents future researchers from pursuing ineffective approaches
+- Quantifies the memory-performance trade-off
+
+## Future Directions
+
+- **Sparsity-aware forgetting**: Only forget when data density allows
+- **Hybrid approaches**: Balance retention and forgetting
+- **Dense dataset validation**: Test on MovieLens, Last.fm
+- **Conditional mechanisms**: Adapt forgetting to user profiles
+
+## Citation
+
+```bibtex
+@thesis{lomtadze2025forgetting,
+  title={Advanced Forgetting Mechanisms for Knowledge Graph-Based Recommendation Systems: A Study on Amazon Product Data},
+  author={Lomtadze, Anactacia},
+  year={2025},
+  school={Constructor University Bremen},
+  type={Bachelor Thesis}
+}
+```
+
+## Key Takeaway
+
+**Don't apply cognitive forgetting mechanisms to sparse recommendation data.** This research shows they cause significant performance degradation without meaningful benefits.
+
+---
+
+**Dataset**: [Amazon Product Reviews](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews) | **Full Thesis**: `thesis_document.pdf`

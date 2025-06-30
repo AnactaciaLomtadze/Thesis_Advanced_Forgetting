@@ -1,0 +1,16 @@
+{
+  "total_ratings": 147412,
+  "unique_users": 4883,
+  "unique_products": 9956,
+  "avg_rating": 4.298978373538111,
+  "rating_distribution": {
+    "5.0": 85535,
+    "4.0": 36850,
+    "3.0": 13830,
+    "2.0": 5959,
+    "1.0": 5238
+  },
+  "sparsity": 0.9969677763811394,
+  "avg_ratings_per_user": 30.188818349375385,
+  "avg_ratings_per_product": 14.806347930895942
+}
