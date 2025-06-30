@@ -1,60 +1,70 @@
+
 # Advanced Forgetting Mechanisms for Knowledge Graph-Based Recommendation Systems
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Kaggle Dataset](https://img.shields.io/badge/dataset-Amazon_Reviews-orange.svg)](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-> **Bachelor Thesis** | Constructor University Bremen | June 2025  
-> **Author:** Anactacia Lomtadze  
-> **Supervisor:** Prof. Dr. A. Tormasov  
+> **Bachelor Thesis**  
+> **Institution**: Constructor University Bremen  
+> **Submission Date**: June 2025  
+> **Author**: Anactacia Lomtadze  
+> **Supervisor**: Prof. Dr. A. Tormasov  
 
 ---
 
-## 🧠 Overview
+## Overview
 
-This research explores whether **cognitive forgetting mechanisms** can enhance **knowledge graph-based recommender systems (KGRS)**.  
-In sparse data environments like Amazon product reviews, they fail dramatically.
-
-### 🔍 Key Finding
-
-> Forgetting mechanisms led to up to **79.2% performance loss** for just **5–15% memory savings**.
+This research project investigates whether biologically inspired forgetting mechanisms can improve the adaptability, personalization, and efficiency of knowledge graph-based recommender systems. The study systematically implements and evaluates four cognitive-inspired forgetting paradigms on the Amazon Electronics dataset.
 
 ---
 
-## 📊 Results Summary
+## Key Finding
 
-| Method                      | Hit Rate@10 | Status         |
-|----------------------------|-------------|----------------|
-| **Quality-Based (Baseline)** | **12.0%**    | ✅ Best         |
-| Popularity-Based           | 9.0%        | ✅ Good         |
-| Neural Adaptive Forgetting | 2.0%        | ❌ -83%         |
-| Attention-Based Forgetting | 2.0%        | ❌ -83%         |
-| Cascade Forgetting         | 1.0%        | ❌ -92%         |
-| Contextual Forgetting      | 1.0%        | ❌ -92%         |
+Cognitive forgetting mechanisms result in up to **79.2% performance loss**, while offering only marginal **5–15% memory savings** in sparse data environments.
 
 ---
 
-## 🚀 Quick Start
+## Summary of Results
 
-### 1. Installation
+| Method                      | Hit Rate@10 | Performance Impact |
+|----------------------------|-------------|---------------------|
+| Quality-Based (Baseline)   | 12.0%       | Highest             |
+| Popularity-Based           | 9.0%        | Moderate            |
+| Neural Adaptive Forgetting | 2.0%        | -83%                |
+| Attention-Based Forgetting | 2.0%        | -83%                |
+| Cascade Forgetting         | 1.0%        | -92%                |
+| Contextual Forgetting      | 1.0%        | -92%                |
+
+---
+
+## Installation Instructions
+
+Install the required dependencies using pip:
 
 ```bash
 pip install pandas numpy matplotlib seaborn networkx scikit-learn tqdm kagglehub[pandas-datasets]
 ```
 
-### 2. Run Full Evaluation
+---
+
+## Execution
+
+To evaluate the system, execute the following scripts:
 
 ```bash
+# Full pipeline execution
 python thesis_final_evaluation.py
-```
 
-### 3. Run Individual Mechanism Test
-
-```bash
+# Individual forgetting mechanism testing
 python test_fixed_mechanisms.py
 ```
 
-### 4. Load Dataset
+---
+
+## Dataset Access
+
+The dataset used is available on Kaggle:
 
 ```python
 import kagglehub
@@ -69,65 +79,62 @@ df = kagglehub.load_dataset(
 
 ---
 
-## 🧩 Core Files
+## Core Components
 
-- `thesis_final_evaluation.py` — Main pipeline for evaluation
-- `fixed_advanced_forgetting.py` — All forgetting mechanisms implemented here
-- `test_fixed_mechanisms.py` — Unit tests and case studies
-- `amazon_knowledge_graph.py` — Knowledge graph construction and enrichment
-
----
-
-## 📘 Scientific Insights
-
-### Why Forgetting Failed
-
-1. **Data sparsity** — Only ~0.3% of potential user-item edges exist
-2. **No redundancy** — Every edge is valuable; pruning causes breakage
-3. **Cold-start amplification** — Makes new user experiences even worse
-
-### Cognitive Mechanism Evaluation
-
-| Mechanism              | Inspired by            | Insight                        |
-|------------------------|------------------------|--------------------------------|
-| Neural Adaptive        | Synaptic plasticity    | Can't adapt to sparse signals |
-| Attention-Based        | Selective attention    | Discards critical paths        |
-| Cascade Forgetting     | Spreading activation   | Over-prunes interconnected nodes |
-| Contextual Forgetting  | Episodic/context memory| Too few signals to use        |
+- `thesis_final_evaluation.py`: Evaluation pipeline
+- `fixed_advanced_forgetting.py`: Implementation of forgetting mechanisms
+- `test_fixed_mechanisms.py`: Mechanism-specific testing
+- `amazon_knowledge_graph.py`: Knowledge graph construction logic
 
 ---
 
-## 📦 Dataset Details
+## Scientific Insights
 
-- **Source**: [Amazon Product Reviews](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews)
-- **Category**: Electronics
-- **Size**: 147,412 ratings, 4,883 users, 9,956 items
+### Why Forgetting Mechanisms Underperform
+
+1. **Data sparsity** severely limits pruning flexibility.
+2. **High interaction value** means even weak links are informative.
+3. **Cold-start issues** are exacerbated by removal of early data.
+
+### Mechanism Summary
+
+| Mechanism              | Cognitive Basis            | Finding                        |
+|------------------------|----------------------------|--------------------------------|
+| Neural Adaptive        | Synaptic Plasticity        | Cannot adapt to low signal     |
+| Attention-Based        | Selective Attention        | Discards critical interactions |
+| Cascade Forgetting     | Spreading Activation       | Over-prunes connected nodes    |
+| Contextual Forgetting  | Context-Dependent Memory   | Insufficient context signals   |
+
+---
+
+## Dataset Information
+
+- **Domain**: Electronics (Amazon)
+- **Ratings**: 147,412
+- **Users**: 4,883
+- **Items**: 9,956
 - **Sparsity**: ~97%
 
 ---
 
-## 🧪 Scientific Contribution
+## Contributions
 
-> 🔬 **First study to systematically demonstrate that cognitive forgetting mechanisms harm recommendation performance in sparse graph-based settings.**
-
-### Impact
-
-- Sets boundaries on applicability of cognitive-inspired models
-- Highlights the risk of over-pruning in low-density graphs
-- Provides an extensible evaluation framework for future research
+- Introduces a formal evaluation framework for memory-aware KGRS.
+- Demonstrates that cognitive forgetting harms performance in sparse domains.
+- Provides baseline comparisons and reproducible benchmarks.
 
 ---
 
-## 🔮 Future Work
+## Future Research Directions
 
-- **Sparsity-aware forgetting** — Apply forgetting only where data is dense
-- **Hybrid methods** — Combine retention with selective decay
-- **Cross-domain evaluation** — Test on MovieLens, Last.fm, etc.
-- **User-aware decay** — Personalize forgetting per user profile
+- **Sparsity-aware forgetting**: Adaptive forgetting based on data richness.
+- **Hybrid retention-forgetting models**.
+- **Cross-domain generalization**: Evaluate on denser datasets such as MovieLens.
+- **Personalized decay logic** for user segments.
 
 ---
 
-## 📖 Citation
+## Citation
 
 ```bibtex
 @thesis{lomtadze2025forgetting,
@@ -141,12 +148,11 @@ df = kagglehub.load_dataset(
 
 ---
 
-## ❗ Final Takeaway
+## Final Remark
 
-> ❌ **Don't apply cognitive forgetting mechanisms to sparse recommendation data**  
-They significantly reduce performance without meaningful memory savings.
+This thesis serves as the first comprehensive analysis showing that biologically motivated forgetting techniques, while conceptually grounded, are ineffective in sparsity-dominated recommendation settings. Their application requires careful tailoring to data characteristics.
 
 ---
 
-**📎 Dataset**: [Amazon Product Reviews](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews)  
-**📄 Full Thesis**: `thesis_document.pdf`
+**Dataset**: [Amazon Product Reviews](https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews)  
+**Thesis Document**: `thesis_document.pdf`
