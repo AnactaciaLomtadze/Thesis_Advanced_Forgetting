@@ -13,7 +13,7 @@
 ## 🧠 Overview
 
 This research explores whether **cognitive forgetting mechanisms** can enhance **knowledge graph-based recommender systems (KGRS)**.  
-**Spoiler alert**: In sparse data environments like Amazon product reviews, they fail dramatically.
+In sparse data environments like Amazon product reviews, they fail dramatically.
 
 ### 🔍 Key Finding
 
